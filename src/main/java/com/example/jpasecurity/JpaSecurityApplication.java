@@ -21,7 +21,9 @@ public class JpaSecurityApplication {
     @Bean
     CommandLineRunner commandLineRunner(PostRepository posts, UserRepository users, PasswordEncoder encoder) {
         return args -> {
-
+/*
+* ajout des utilisateurs par défaut
+* */
             users.save(new User("user",encoder.encode("password"),"ROLE_USER"));
             users.save(new User("admin",encoder.encode("password"),"ROLE_USER,ROLE_ADMIN"));
 
